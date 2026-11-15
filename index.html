@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to be an Astronaut - NASA Space Apps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-default">
+
+    <!-- Logo NASA siempre visible en el HUD -->
+    <div class="nasa-watermark">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="NASA Official Logo">
+    </div>
+
+    <!-- Elementos ambientales dinámicos según nivel -->
+    <div id="env-moon" class="env-object env-moon" style="display: none;"></div>
+    <div id="env-mars-far" class="env-object env-mars-far" style="display: none;"></div>
+    <div id="env-mars-surface" class="env-object env-mars-surface" style="display: none;">
+        <div class="little-martian" title="Marcianito curioso">👽</div>
+    </div>
+
+    <!-- Selector de Idioma (Arriba a la derecha) -->
+    <div class="lang-switcher">
+        <button id="btn-lang-en" class="lang-btn active">🇺🇸 EN</button>
+        <button id="btn-lang-es" class="lang-btn">🇦🇷 ES</button>
+    </div>
+
+    <!-- CORTINA / PANTALLA DE INICIO -->
+    <div class="cortina" id="cortina">
+        <!-- Arriba derecha: Logo UNVIME -->
+        <div class="corner-top-right">
+            <img src="https://www.unvime.edu.ar/wp-content/uploads/2021/04/logo-unvime-blanco.png" 
+                 onerror="this.style.display='none'; document.getElementById('unvime-fallback').style.display='flex';" 
+                 alt="UNVIME Logo" class="logo-unvime">
+            <div id="unvime-fallback" class="badge-fallback unvime-badge" style="display:none;">
+                🎓 UNVIME
+            </div>
+        </div>
+
+        <!-- Centro: Cohete y Título -->
+        <div class="hero-center">
+            <div class="rocket-container">
+                <div class="rocket-emoji">🚀</div>
+                <div class="rocket-flame">🔥</div>
+            </div>
+            <h1 class="titulo-juego">How to be an Astronaut</h1>
+            <p class="subtitulo" id="txt-subtitle">Scroll down or click anywhere to launch</p>
+            <button class="launch-hero-btn" id="btn-enter-game">START MISSION</button>
+        </div>
+
+        <!-- Abajo izquierda: Logo NASA Space Apps Challenge (Grande y notorio) -->
+        <div class="corner-bottom-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="NASA" class="logo-nasa-hero">
+            <div class="spaceapps-title-box">
+                <span class="sa-tag">NASA INTERNATIONAL</span>
+                <strong class="sa-main">SPACE APPS CHALLENGE</strong>
+            </div>
+        </div>
+
+        <!-- Abajo derecha: Crédito del equipo SuperAyuda -->
+        <div class="corner-bottom-right">
+            <span class="team-credit">Team Los SuperAyuda</span>
+        </div>
+    </div>
+
+    <!-- BARRAS DE ESTADO SUPERIORES -->
+    <header class="Barras-vidas">
+        <div class="barra" id="bar-energia">⚡ <span id="lbl-energia">Energy</span>: <span id="val-energia">100</span>%</div>
+        <div class="barra" id="bar-vida">❤️ <span id="lbl-vida">Health</span>: <span id="val-vida">100</span>%</div>
+        <div class="barra" id="bar-blindaje">🛡️ <span id="lbl-blindaje">Shield</span>: <span id="val-blindaje">100</span>%</div>
+        <div class="barra" id="bar-progreso">🚀 <span id="lbl-progreso">Progress</span>: <span id="val-progreso">0</span>%</div>
+    </header>
+
+    <!-- LAYOUT PRINCIPAL (Juego al centro + Datos NASA al costado) -->
+    <main class="main-workspace">
+        <div class="center-column">
+            <!-- Pantalla 0: Pregunta de Tutorial -->
+            <div class="game-container" id="tutorial-prompt-screen">
+                <h2 id="tut-welcome-title" style="text-align: center; color: #38bdf8; margin-bottom: 14px;">🧑‍🚀 Welcome aboard, Cadet!</h2>
+                <p id="tut-welcome-desc" style="text-align: center; color: #cbd5e1; margin-bottom: 24px; line-height: 1.5;">
+                    Before blasting off into deep space with real NASA data, would you like a quick training session to learn how to survive?
+                </p>
+                <div class="options-container">
+                    <button class="option-box" id="btn-start-tutorial" style="border-color: #4ade80;">🎓 Yes, start Tutorial</button>
+                    <button class="option-box" id="btn-skip-tutorial">⏭️ No, go straight to Mission</button>
+                </div>
+            </div>
+
+            <!-- Pantalla 0.5: Pasos del Tutorial -->
+            <div class="game-container" id="tutorial-steps-screen" style="display: none;">
+                <div id="tutorial-content" class="question-box"></div>
+                <div class="options-container">
+                    <button class="option-box" id="btn-tutorial-prev">⬅️ Previous</button>
+                    <button class="option-box" id="btn-tutorial-next" style="border-color: #38bdf8;">Next ➡️</button>
+                </div>
+            </div>
+
+            <!-- Pantalla 1: Selección de Nivel Progresivo y Personaje -->
+            <div class="game-container" id="setup-screen" style="display: none;">
+                <h2 id="setup-title" style="text-align: center; color: #38bdf8; margin-bottom: 18px;">Prepare Your Space Mission</h2>
+                
+                <label class="setup-label" id="lbl-select-level">1. Choose Destination (Complete previous level to unlock):</label>
+                <div class="setup-group" id="level-selector">
+                    <button class="setup-btn active" data-level="1" data-key="level_1_luna">🌑 Level 1: The Moon (Easy • No Progress Loss)</button>
+                    <button class="setup-btn locked" data-level="2" data-key="level_2_orbita_marte">🔒 Level 2: Mars Orbit (Locked)</button>
+                    <button class="setup-btn locked" data-level="3" data-key="level_3_caida_marte">🔒 Level 3: Crash on Mars (Locked)</button>
+                </div>
+
+                <label class="setup-label" id="lbl-select-role" style="margin-top: 20px;">2. Choose Your Specialty:</label>
+                <div class="setup-group" id="role-selector">
+                    <button class="setup-btn active" data-role="Ingeniero Mecánico" id="role-btn-1">🔧 Mechanical Engineer (+20% Initial Shield)</button>
+                    <button class="setup-btn" data-role="Especialista en Sistemas" id="role-btn-2">💻 Systems Specialist (75% success on radio glitches)</button>
+                    <button class="setup-btn" data-role="Médico / Biólogo" id="role-btn-3">🧬 Medic / Biologist (+20% Initial Health)</button>
+                </div>
+
+                <button class="start-btn" id="btn-start-game">🚀 Launch Mission</button>
+            </div>
+
+            <!-- Pantalla 2: Juego Principal -->
+            <div class="game-container" id="game-screen" style="display: none;">
+                <div id="timer-box" class="timer-box" style="display: none;">
+                    ⏱️ <span id="lbl-timer">Optimal pace! Decide fast:</span> <span id="timer-seconds">20</span>s
+                </div>
+
+                <div id="feedback-banner" class="feedback-banner" style="display: none;"></div>
+                <div id="event-banner" class="event-banner" style="display: none;"></div>
+                
+                <div class="question-box" id="div-pregunta"></div>
+                
+                <div id="hint-container" style="margin-bottom: 18px; text-align: center;">
+                    <button id="btn-hint" class="hint-btn">💡 Need a hint?</button>
+                    <p id="hint-text" class="hint-text" style="display: none;"></p>
+                </div>
+
+                <div class="options-container" id="options-container">
+                    <div class="option-box" id="div-opcion1"></div>
+                    <div class="option-box" id="div-opcion2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIDGET LATERAL: DATOS REALES DE LA NASA -->
+        <aside class="nasa-sidebar" id="nasa-sidebar">
+            <div class="sidebar-header">
+                <span id="sidebar-title">🛰️ NASA API Real Data</span>
+                <button id="btn-next-fact" title="Next NASA Fact">↻</button>
+            </div>
+            <img id="fact-img" src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001435/GSFC_20171208_Archive_e001435~medium.jpg" alt="NASA Data Image" class="fact-img">
+            <h4 id="fact-title" class="fact-title">DONKI Space Weather</h4>
+            <p id="fact-text" class="fact-text">Loading real NASA telemetry...</p>
+            <span id="fact-source" class="fact-source">Source: NASA DONKI API</span>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+{
+  "gameConfig": {
+    "description": "Balanced damage/benefit multipliers for ages 8-14 (Level 1: Easy/No progress loss, Level 2: Medium, Level 3: Semi-Hard)",
+    "levelMultipliers": {
+      "1": 0.7,
+      "2": 1.0,
+      "3": 1.3
+    },
+    "statsKeys": ["energia", "vida", "blindaje", "progreso"]
+  },
+  "generalTasks": [
+    {
+      "id": "GEN_01",
+      "category": "Clima Espacial y Radiación",
+      "role": "Especialista en Sistemas",
+      "nasaSource": "NASA DONKI (CME - Coronal Mass Ejection)",
+      "title_en": "Solar Plasma Cloud Incoming!",
+      "title": "¡Nube de plasma solar en camino!",
+      "question_en": "Real NASA DONKI alert: a giant explosion on the Sun hurled a plasma cloud toward our ship that can fry our computers. Do you turn on the magnetic shield, or keep measuring the storm with sensors?",
+      "question": "Alerta real de NASA DONKI: una explosión gigante en el Sol lanzó una nube de plasma hacia la nave que puede quemar las computadoras. ¿Prendés el escudo magnético o seguís midiendo la tormenta con los sensores?",
+      "hint_en": "The magnetic shield protects the hull, but drains battery.",
+      "hint": "El escudo magnético protege el casco de la nave, pero consume batería.",
+      "options": {
+        "left": {
+          "label_en": "Turn on magnetic shield",
+          "label": "Prender escudo magnético",
+          "effects": { "energia": -15, "vida": 0, "blindaje": 10, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Measure storm with sensors",
+          "label": "Medir tormenta con sensores",
+          "effects": { "energia": 0, "vida": -10, "blindaje": -15, "progreso": 15 }
+        }
+      }
+    },
+    {
+      "id": "GEN_02",
+      "category": "Clima Espacial y Radiación",
+      "role": "Comandante",
+      "nasaSource": "NASA DONKI (FLR - X-Class Solar Flare)",
+      "title_en": "Solar X-Rays at Light Speed!",
+      "title": "¡Rayos X del Sol a toda velocidad!",
+      "question_en": "Real NASA DONKI alert: an X-class solar flare will hit in 8 minutes and can break our solar panels. Do you turn the panels sideways to hide them, or keep charging batteries at full power?",
+      "question": "Alerta real de NASA DONKI: una llamarada solar Clase X llegará en 8 minutos y puede romper los paneles solares. ¿Escondés los paneles poniéndolos de costado o los dejás cargando batería al máximo?",
+      "hint_en": "Turning panels sideways stops charging, but saves them from breaking.",
+      "hint": "Si girás los paneles no cargan electricidad, pero se salvan de romperse.",
+      "options": {
+        "left": {
+          "label_en": "Turn panels sideways",
+          "label": "Esconder paneles de costado",
+          "effects": { "energia": -10, "vida": 0, "blindaje": 10, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Keep charging at max",
+          "label": "Seguir cargando al máximo",
+          "effects": { "energia": 15, "vida": 0, "blindaje": -15, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_03",
+      "category": "Clima Espacial y Radiación",
+      "role": "Médico / Biólogo",
+      "nasaSource": "NASA DONKI (SEP) & OSDR RadLab",
+      "title_en": "Invisible Proton Storm!",
+      "title": "¡Lluvia de partículas invisibles!",
+      "question_en": "Real NASA RadLab science: a solar proton storm is piercing the ship walls and can make the crew sick. Do you shelter behind the water tanks (which block radiation), or finish an urgent repair outside?",
+      "question": "Dato real de NASA RadLab: una tormenta de protones solares atraviesa las paredes de la nave y puede enfermar a la tripulación. ¿Se refugian detrás de los tanques de agua (que frenan la radiación) o terminan una reparación urgente afuera?",
+      "hint_en": "Water is one of the best radiation shields in space.",
+      "hint": "El agua es uno de los mejores escudos contra la radiación espacial.",
+      "options": {
+        "left": {
+          "label_en": "Shelter behind water tanks",
+          "label": "Refugiarse junto al agua",
+          "effects": { "energia": 0, "vida": 10, "blindaje": 0, "progreso": -10 }
+        },
+        "right": {
+          "label_en": "Finish spacewalk repair",
+          "label": "Terminar reparación afuera",
+          "effects": { "energia": 0, "vida": -15, "blindaje": 0, "progreso": 15 }
+        }
+      }
+    },
+    {
+      "id": "GEN_04",
+      "category": "Clima Espacial y Radiación",
+      "role": "Especialista en Sistemas",
+      "nasaSource": "NASA DONKI (IPS / GST - Geomagnetic Storm)",
+      "title_en": "Compasses and Antennas Glitching!",
+      "title": "¡Brújulas y antenas mareadas!",
+      "question_en": "Real NASA DONKI data: a space magnetic storm is scrambling our compasses, radios, and deep-space GPS. Do you reboot navigation manually using battery, or wait quietly until the storm passes?",
+      "question": "Dato real de NASA DONKI: una tormenta magnética espacial está volviendo locas las brújulas, las radios y el GPS de la nave. ¿Reiniciás la navegación a mano gastando batería o esperás quieto a que pase la tormenta?",
+      "hint_en": "Waiting saves battery, while rebooting keeps the mission moving.",
+      "hint": "Esperar ahorra batería, mientras que reiniciar mantiene el avance de la misión.",
+      "options": {
+        "left": {
+          "label_en": "Reboot manual navigation",
+          "label": "Reiniciar navegación manual",
+          "effects": { "energia": -10, "vida": 0, "blindaje": 0, "progreso": 10 }
+        },
+        "right": {
+          "label_en": "Wait and save battery",
+          "label": "Esperar sin gastar batería",
+          "effects": { "energia": 10, "vida": 0, "blindaje": 0, "progreso": -10 }
+        }
+      }
+    },
+    {
+      "id": "GEN_05",
+      "category": "Clima Espacial y Radiación",
+      "role": "Médico / Biólogo",
+      "nasaSource": "NASA OSDR RadLab (Galactic Cosmic Rays)",
+      "title_en": "Rays From Distant Galaxies!",
+      "title": "¡Rayos desde otras galaxias!",
+      "question_en": "Real NASA RadLab data: dosimeters show cosmic rays from distant stars are rising fast. Do you line the sleeping quarters with special plastic sheets, or save that material to patch the outer hull?",
+      "question": "Dato real de NASA RadLab: los dosímetros muestran que suben los rayos cósmicos que vienen de estrellas lejanas. ¿Usás planchas de plástico especial para proteger los dormitorios o guardás ese material para reparar el casco?",
+      "hint_en": "Lining sleeping quarters protects crew health while resting.",
+      "hint": "Reforzar los dormitorios cuida la salud de los astronautas mientras duermen.",
+      "options": {
+        "left": {
+          "label_en": "Protect crew quarters",
+          "label": "Proteger los dormitorios",
+          "effects": { "energia": -5, "vida": 10, "blindaje": -5, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Save material for hull",
+          "label": "Guardar material para el casco",
+          "effects": { "energia": 0, "vida": -10, "blindaje": 10, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_06",
+      "category": "Salud Humana y Biología",
+      "role": "Médico / Biólogo",
+      "nasaSource": "NASA OSDR (Microgravity Bone Loss Studies)",
+      "title_en": "Weakening Bones and Muscles!",
+      "title": "¡Huesos y músculos flojitos!",
+      "question_en": "Real NASA OSDR science: floating in zero gravity makes astronaut bones and muscles weaken very fast. Do you do 2 hours of daily space gym workouts, or use that time for science experiments?",
+      "question": "Dato real de NASA OSDR: al flotar sin gravedad, los huesos y músculos de los astronautas pierden fuerza muy rápido. ¿Hacen 2 horas diarias de gimnasio espacial o usan ese tiempo para avanzar con los experimentos?",
+      "hint_en": "Without daily workouts in zero-G, astronauts lose physical strength.",
+      "hint": "En el espacio los astronautas pierden fuerza si no entrenan todos los días.",
+      "options": {
+        "left": {
+          "label_en": "Do 2h of space gym",
+          "label": "Hacer 2h de gimnasio espacial",
+          "effects": { "energia": -10, "vida": 15, "blindaje": 0, "progreso": -5 }
+        },
+        "right": {
+          "label_en": "Focus on experiments",
+          "label": "Seguir con los experimentos",
+          "effects": { "energia": 0, "vida": -15, "blindaje": 0, "progreso": 15 }
+        }
+      }
+    },
+    {
+      "id": "GEN_07",
+      "category": "Salud Humana y Biología",
+      "role": "Biólogo / Botánico",
+      "nasaSource": "CSA Food Production Toolkit & NASA OSDR (VEG)",
+      "title_en": "Space Garden Lights Went Out!",
+      "title": "¡Se apagó el sol del huerto espacial!",
+      "question_en": "Real NASA Veggie experiment: the red and blue LEDs that grow our space lettuce and tomatoes went out. Do you divert power from cabin heaters to light the plants, or leave the garden dark today?",
+      "question": "Experimento real Veggie de la NASA: se apagaron las luces LED rojas y azules con las que crecen nuestras lechugas y tomates espaciales. ¿Sacás electricidad de la calefacción para prenderlas o dejás el huerto a oscuras hoy?",
+      "hint_en": "Fresh vegetables keep crew health up, though LEDs use battery.",
+      "hint": "Las verduras frescas suben la salud de los astronautas, pero las luces usan batería.",
+      "options": {
+        "left": {
+          "label_en": "Power the garden LEDs",
+          "label": "Dar electricidad al huerto",
+          "effects": { "energia": -15, "vida": 10, "blindaje": 0, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Turn off lights & save power",
+          "label": "Apagar luces y ahorrar batería",
+          "effects": { "energia": 10, "vida": -10, "blindaje": 0, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_08",
+      "category": "Salud Humana y Biología",
+      "role": "Biólogo / Botánico",
+      "nasaSource": "NASA OSDR (ISS Microbiology - Fusarium Fungus)",
+      "title_en": "Invading Fungus on Space Crops!",
+      "title": "¡Hongos invasores en las plantas!",
+      "question_en": "Real NASA OSDR data: space mold appeared on our crops that can make the crew sick if eaten. Do you discard the whole harvest and sterilize with UV light, or risk trying to save half?",
+      "question": "Dato real de NASA OSDR: apareció un moho espacial en las hojas del huerto que puede enfermar a la tripulación si lo comen. ¿Tirás toda la cosecha y desinfectás con luz ultravioleta, o te arriesgás a salvar la mitad?",
+      "hint_en": "Trying to save half is a gamble: it might work or make everyone sick.",
+      "hint": "Intentar salvar la mitad es una apuesta: puede salir bien o enfermar a todos.",
+      "specialMechanic": "50_50_RISK",
+      "options": {
+        "left": {
+          "label_en": "Discard & UV sterilize",
+          "label": "Tirar todo y desinfectar",
+          "effects": { "energia": -10, "vida": -5, "blindaje": 0, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Try saving half the plants",
+          "label": "Intentar salvar la mitad",
+          "effects": { "energia": 0, "vida": 15, "blindaje": 0, "progreso": 0 },
+          "failEffects": { "energia": 0, "vida": -20, "blindaje": 0, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_09",
+      "category": "Salud Humana y Biología",
+      "role": "Médico / Biólogo",
+      "nasaSource": "NASA OSDR (Circadian Rhythm & Space Fatigue)",
+      "title_en": "16 Sunrises in a Single Day!",
+      "title": "¡16 amaneceres en un solo día!",
+      "question_en": "Real NASA OSDR science: in orbit we see a sunrise every 90 minutes (16 times a day), confusing the brain's sleep clock. Do you switch to warm lights for proper rest, or drink coffee and keep working?",
+      "question": "Dato real de NASA OSDR: en órbita vemos amanecer cada 90 minutos (16 veces por día) y el cerebro se confunde para dormir. ¿Ponés luces cálidas para descansar bien o toman café para seguir trabajando?",
+      "hint_en": "Good sleep restores crew health; working tired drains it.",
+      "hint": "Dormir bien recupera la salud de la tripulación; trabajar cansados la baja.",
+      "options": {
+        "left": {
+          "label_en": "Rest with warm lights",
+          "label": "Descansar con luces cálidas",
+          "effects": { "energia": 0, "vida": 15, "blindaje": 0, "progreso": -10 }
+        },
+        "right": {
+          "label_en": "Keep working without sleep",
+          "label": "Seguir trabajando sin dormir",
+          "effects": { "energia": 0, "vida": -15, "blindaje": 0, "progreso": 15 }
+        }
+      }
+    },
+    {
+      "id": "GEN_10",
+      "category": "Salud Humana y Biología",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA ECLSS (Water Recovery & Life Support)",
+      "title_en": "Water Recycler Filter Clogged!",
+      "title": "¡Falla en la máquina que recicla el agua!",
+      "question_en": "Real NASA ECLSS system: in space we recycle even sweat into clean drinking water, but the filter clogged up. Do you spend electricity boiling emergency water, or ration one cup per day?",
+      "question": "Sistema real ECLSS de la NASA: en el espacio reciclamos hasta el sudor para tener agua potable, pero el filtro se tapó. ¿Gastás mucha electricidad hirviendo agua de emergencia o racionás un vasito por día para cada astronauta?",
+      "hint_en": "Boiling water uses battery, but keeps the crew hydrated and healthy.",
+      "hint": "Hervir agua gasta batería, pero mantiene hidratada y sana a la tripulación.",
+      "options": {
+        "left": {
+          "label_en": "Boil emergency water",
+          "label": "Hervir agua de emergencia",
+          "effects": { "energia": -15, "vida": 10, "blindaje": 0, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Ration water per day",
+          "label": "Racionar el agua por día",
+          "effects": { "energia": 10, "vida": -15, "blindaje": 0, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_11",
+      "category": "Ingeniería y Navegación",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA API (NeoWs - Near Earth Object Web Service)",
+      "title_en": "Incoming Micrometeoroid Shower!",
+      "title": "¡Lluvia de piedritas espaciales!",
+      "question_en": "Real NASA NeoWs radar: micrometeoroids are flying faster than a bullet toward our ship. Do you fire thrusters to dodge them, or let our Whipple hull armor absorb the impact?",
+      "question": "Radar real NASA NeoWs: vienen micrometeoritos volando más rápido que una bala hacia la nave. ¿Encendés los motores para esquivarlos o dejás que el escudo Whipple del casco aguante el golpe?",
+      "hint_en": "Dodging uses energy, while absorbing the hit damages ship shields.",
+      "hint": "Esquivar gasta energía, pero recibir el golpe daña el blindaje.",
+      "options": {
+        "left": {
+          "label_en": "Fire thrusters & dodge",
+          "label": "Encender motores y esquivar",
+          "effects": { "energia": -15, "vida": 0, "blindaje": 10, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Absorb hit with hull armor",
+          "label": "Aguantar golpe con el casco",
+          "effects": { "energia": 10, "vida": 0, "blindaje": -15, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_12",
+      "category": "Ingeniería y Navegación",
+      "role": "Especialista en Sistemas",
+      "nasaSource": "NASA Deep Space Network (Signal Delay)",
+      "title_en": "Radio Lost With Houston!",
+      "title": "¡Se cortó la radio con Houston!",
+      "question_en": "Real NASA Deep Space Network: radio contact with Houston cut out right before a key burn. Do you calculate the maneuver yourself, or hold the ship until signal returns?",
+      "question": "Red real Deep Space Network de la NASA: se cortó la radio con Houston justo antes de una maniobra clave. ¿Calculás la maniobra vos solo o frenás la nave hasta que vuelva la señal?",
+      "hint_en": "Calculating alone is risky, while waiting is safe.",
+      "hint": "Calcular solos tiene riesgo de error, mientras que esperar es seguro.",
+      "specialMechanic": "COMMS_50_50",
+      "options": {
+        "left": {
+          "label_en": "Calculate maneuver alone",
+          "label": "Calcular maniobra solos",
+          "effects": { "energia": 0, "vida": 0, "blindaje": 0, "progreso": 15 },
+          "failEffects": { "energia": 0, "vida": 0, "blindaje": 0, "progreso": -15 }
+        },
+        "right": {
+          "label_en": "Hold ship & wait for signal",
+          "label": "Frenar y esperar a Houston",
+          "effects": { "energia": 5, "vida": 0, "blindaje": 0, "progreso": -10 }
+        }
+      }
+    },
+    {
+      "id": "GEN_13",
+      "category": "Ingeniería y Navegación",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA Cabin Depressurization Protocols",
+      "title_en": "Hissss! Oxygen Leak Detected!",
+      "title": "¡Pssss! ¡Se escapa el aire!",
+      "question_en": "Real NASA protocol: hissss! The Engineer found an oxygen leak in the storage bay hatch. Do you seal that room forever losing science gear, or suit up and weld the hole outside?",
+      "question": "Protocolo real de la NASA: ¡pssss! El Mecánico detectó una fuga de oxígeno en la puerta del almacén. ¿Cerrás esa sala para siempre perdiendo equipo científico o salís con traje espacial a soldar el agujero?",
+      "hint_en": "Welding outside repairs the ship shield, though it tires the astronaut.",
+      "hint": "Salir a soldar arregla el blindaje de la nave, aunque cansa al astronauta.",
+      "options": {
+        "left": {
+          "label_en": "Seal room & lose gear",
+          "label": "Cerrar sala y perder equipo",
+          "effects": { "energia": 0, "vida": 10, "blindaje": 0, "progreso": -15 }
+        },
+        "right": {
+          "label_en": "Spacewalk & weld hole",
+          "label": "Salir a soldar el agujero",
+          "effects": { "energia": -10, "vida": -5, "blindaje": 15, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_14",
+      "category": "Ingeniería y Navegación",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA OSDR (Cabin CO2 Scrubbers)",
+      "title_en": "Too Much CO2 in the Cabin!",
+      "title": "¡Demasiado aire viciado en la cabina!",
+      "question_en": "Real NASA OSDR science: breathing fills the cabin with carbon dioxide (CO2) and our air scrubber is overloaded. Do you run emergency chemical scrubbers at max, or stay still breathing slowly?",
+      "question": "Dato real de NASA OSDR: al respirar llenamos la cabina de dióxido de carbono (CO2) y el filtro de aire está saturado. ¿Prendés los filtros químicos de emergencia al máximo o se quedan quietos respirando despacio?",
+      "hint_en": "Chemical scrubbers clean the air fast using electricity.",
+      "hint": "Los filtros químicos limpian el aire rápido usando electricidad.",
+      "options": {
+        "left": {
+          "label_en": "Run scrubbers at max",
+          "label": "Prender filtros al máximo",
+          "effects": { "energia": -15, "vida": 10, "blindaje": 0, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Stay still & pause work",
+          "label": "Quedarse quietos sin trabajar",
+          "effects": { "energia": 10, "vida": 0, "blindaje": 0, "progreso": -15 }
+        }
+      }
+    },
+    {
+      "id": "GEN_15",
+      "category": "Ingeniería y Navegación",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA Spacecraft Thermal Control",
+      "title_en": "Ship Overheating Inside!",
+      "title": "¡La nave está hirviendo por dentro!",
+      "question_en": "Real NASA engineering: in space vacuum there is no wind to cool the ship and our computers are overheating. Do you shut down science computers to cool off, or push cooling pumps to max?",
+      "question": "Ingeniería real de la NASA: en el vacío del espacio no hay aire que enfríe la nave y las computadoras están hirviendo. ¿Apagás las computadoras científicas para bajar el calor o forzás las bombas de frío al máximo?",
+      "hint_en": "Cooling pumps keep science running but consume energy.",
+      "hint": "Las bombas de frío permiten seguir investigando pero consumen energía.",
+      "options": {
+        "left": {
+          "label_en": "Shut down science PCs",
+          "label": "Apagar PCs científicas",
+          "effects": { "energia": 0, "vida": 0, "blindaje": 10, "progreso": -10 }
+        },
+        "right": {
+          "label_en": "Push cooling pumps to max",
+          "label": "Forzar bombas de frío",
+          "effects": { "energia": -15, "vida": 0, "blindaje": 0, "progreso": 10 }
+        }
+      }
+    },
+    {
+      "id": "GEN_16",
+      "category": "Ingeniería y Navegación",
+      "role": "Especialista en Sistemas",
+      "nasaSource": "Attitude Determination & Control (ADCS)",
+      "title_en": "Ship Spinning Like a Top!",
+      "title": "¡La nave empezó a girar como un trompo!",
+      "question_en": "Real NASA ADCS system: a gyroscope wheel jammed, spinning the ship like a top away from the Sun. Do you fire thrusters to stabilize fast, or let backup software slowly straighten it?",
+      "question": "Sistema real ADCS de la NASA: se trabó una rueda del giroscopio, la nave gira como un trompo y los paneles perdieron el Sol. ¿Usás propulsores para enderezarla rápido o esperás a que el software la acomode despacio?",
+      "hint_en": "Thrusters stabilize the ship immediately using fuel.",
+      "hint": "Los propulsores enderezan la nave al instante gastando combustible.",
+      "options": {
+        "left": {
+          "label_en": "Fire thrusters to stabilize",
+          "label": "Enderezar con propulsores",
+          "effects": { "energia": -15, "vida": 0, "blindaje": 10, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Adjust slowly via software",
+          "label": "Acomodar despacio por software",
+          "effects": { "energia": 5, "vida": 0, "blindaje": 0, "progreso": -10 }
+        }
+      }
+    },
+    {
+      "id": "GEN_17",
+      "category": "Ingeniería y Navegación",
+      "role": "Especialista en Sistemas",
+      "nasaSource": "NASA OSDR (Radiation Single Event Upsets)",
+      "title_en": "Cosmic Ray Flipped a Computer Bit!",
+      "title": "¡Un rayo cósmico cambió un cero por un uno!",
+      "question_en": "Real NASA OSDR data: a cosmic particle hit our main computer chip and flipped a 0 to a 1 (memory glitch). Do you reboot the whole ship losing time, or patch it live while flying?",
+      "question": "Dato real de NASA OSDR: un rayo cósmico golpeó el chip de la computadora principal y cambió un 0 por un 1 (error de memoria). ¿Reiniciás toda la nave perdiendo tiempo o lo arreglás en pleno vuelo?",
+      "hint_en": "Rebooting is safe; patching live is a gamble.",
+      "hint": "Reiniciar es seguro; arreglarlo en vuelo es una apuesta.",
+      "specialMechanic": "50_50_RISK",
+      "options": {
+        "left": {
+          "label_en": "Reboot main computer",
+          "label": "Reiniciar computadora",
+          "effects": { "energia": 0, "vida": 0, "blindaje": 10, "progreso": -10 }
+        },
+        "right": {
+          "label_en": "Patch live in flight",
+          "label": "Arreglar en pleno vuelo",
+          "effects": { "energia": 0, "vida": 0, "blindaje": 0, "progreso": 15 },
+          "failEffects": { "energia": -15, "vida": 0, "blindaje": 0, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_18",
+      "category": "Ciencia y Exploración",
+      "role": "Investigador / Científico",
+      "nasaSource": "NASA Science Spectroscopy APIs",
+      "title_en": "Mysterious Signal on Nearby Body!",
+      "title": "¡Señal misteriosa en un planeta cercano!",
+      "question_en": "Real NASA spectrometer: we spotted rare organic molecules on a nearby celestial body that could be clues to life. Do you detour to investigate it, or stay on course to save supplies?",
+      "question": "Espectrómetro real de la NASA: detectamos moléculas orgánicas muy raras en un cuerpo celeste cercano que podrían ser pistas de vida. ¿Desviás la nave para estudiarlo o seguís derecho para ahorrar recursos?",
+      "hint_en": "Detouring gives huge science progress in exchange for energy.",
+      "hint": "Desviarse da mucho progreso científico a cambio de energía.",
+      "options": {
+        "left": {
+          "label_en": "Detour & investigate",
+          "label": "Desviarse e investigar",
+          "effects": { "energia": -15, "vida": 0, "blindaje": 0, "progreso": 20 }
+        },
+        "right": {
+          "label_en": "Stay on course & save",
+          "label": "Seguir derecho y ahorrar",
+          "effects": { "energia": 10, "vida": 5, "blindaje": 0, "progreso": -10 }
+        }
+      }
+    },
+    {
+      "id": "GEN_19",
+      "category": "Ingeniería y Navegación",
+      "role": "Ingeniero Mecánico",
+      "nasaSource": "NASA Lithium-Ion Battery Thermal Tests",
+      "title_en": "Batteries Strained by Space Cold!",
+      "title": "¡Baterías cansadas por el frío espacial!",
+      "question_en": "Real NASA battery tests: extreme heat and cold swings in space are wearing down our lithium-ion batteries. Do you cap charging at 80% to protect them, or charge to 100% risking a short circuit?",
+      "question": "Pruebas reales de baterías de la NASA: los cambios extremos de frío y calor en el espacio están desgastando las baterías de litio. ¿Las cargás solo hasta el 80% para cuidarlas o al 100% arriesgando un cortocircuito?",
+      "hint_en": "Charging to 80% keeps systems safe; 100% gives extra energy with hull risk.",
+      "hint": "Cargar al 80% cuida la nave; al 100% da más energía pero arriesga el blindaje.",
+      "options": {
+        "left": {
+          "label_en": "Cap charge at 80%",
+          "label": "Cargar hasta el 80%",
+          "effects": { "energia": -10, "vida": 0, "blindaje": 10, "progreso": 0 }
+        },
+        "right": {
+          "label_en": "Charge to 100% with risk",
+          "label": "Llenar al 100% con riesgo",
+          "effects": { "energia": 15, "vida": 0, "blindaje": -15, "progreso": 0 }
+        }
+      }
+    },
+    {
+      "id": "GEN_20",
+      "category": "Emergencia Crítica",
+      "role": "Comandante",
+      "nasaSource": "NASA Emergency Survival Protocols",
+      "title_en": "Red Alert on Spacecraft!",
+      "title": "¡Alerta Roja en la Nave!",
+      "question_en": "Real NASA emergency protocol: Red Alert! Vital systems are critical and reserve power can only boost one area. Do you channel reserve power into crew health or hull welding?",
+      "question": "Protocolo real de emergencia NASA: ¡Alerta Roja! Los sistemas vitales están al límite y solo alcanza la energía para reforzar una cosa. ¿Usás la reserva para curar a la tripulación o para soldar el casco?",
+      "hint_en": "Emergency override: boost whichever bar is lowest!",
+      "hint": "Carta de rescate: reforzá la barra que tengas más baja.",
+      "specialMechanic": "LOW_RESOURCE_PROTECTION",
+      "options": {
+        "left": {
+          "label_en": "Boost Crew Health",
+          "label": "Reforzar Salud de Tripulación",
+          "effects": { "energia": -10, "vida": 20, "blindaje": 0, "progreso": -10 }
+        },
+        "right": {
+          "label_en": "Boost Ship Shield",
+          "label": "Reforzar Blindaje de la Nave",
+          "effects": { "energia": -10, "vida": 0, "blindaje": 20, "progreso": -10 }
+        }
+      }
+    }
+  ],
+  "levelSpecialTasks": {
+    "level_1_luna": [
+      {
+        "id": "LUN_01",
+        "role": "Ingeniero Mecánico",
+        "nasaSource": "NASA Artemis & Apollo (Lunar Regolith)",
+        "title_en": "Lunar Dust Sharp as Crushed Glass!",
+        "title": "¡Polvo lunar afilado como vidrio!",
+        "question_en": "Real Apollo & Artemis science: with no wind or water on the Moon, lunar dust (regolith) is sharp like crushed glass and cuts spacesuits. Do you spend power vacuuming suits, or enter without cleaning?",
+        "question": "Dato real de Apollo y Artemis: como en la Luna no hay viento ni agua, el polvo lunar (regolito) es afilado como vidrio molido y corta los trajes. ¿Gastás energía aspirando bien los trajes o entrás rápido sin limpiar?",
+        "hint_en": "Cleaning suits protects your shield and crew health.",
+        "hint": "Limpiar los trajes protege el blindaje y la salud de los astronautas.",
+        "options": {
+          "left": {
+            "label_en": "Vacuum spacesuits well",
+            "label": "Aspirar bien los trajes",
+            "effects": { "energia": -10, "vida": 0, "blindaje": 15, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Enter without cleaning",
+            "label": "Entrar rápido sin limpiar",
+            "effects": { "energia": 0, "vida": -10, "blindaje": -10, "progreso": 10 }
+          }
+        }
+      },
+      {
+        "id": "LUN_02",
+        "role": "Especialista en Sistemas",
+        "nasaSource": "NASA Artemis (14-Day Lunar Night)",
+        "title_en": "14-Day Lunar Night Approaching!",
+        "title": "¡Se viene una noche de 14 días seguidos!",
+        "question_en": "Real NASA Artemis fact: night on the Moon lasts 14 Earth days straight at -130°C with zero sunlight for solar panels. Do you hibernate most of the base to save battery, or keep labs powered on?",
+        "question": "Dato real de NASA Artemis: la noche en la Luna dura 14 días terrestres seguidos a -130 °C y sin sol para los paneles. ¿Hibernás casi toda la base para ahorrar batería o dejás los laboratorios encendidos?",
+        "hint_en": "Hibernating recharges reserves before the long dark night.",
+        "hint": "Hibernar permite cuidar la batería durante las dos semanas sin sol.",
+        "options": {
+          "left": {
+            "label_en": "Hibernate & save battery",
+            "label": "Hibernar y ahorrar batería",
+            "effects": { "energia": 15, "vida": 0, "blindaje": 0, "progreso": -10 }
+          },
+          "right": {
+            "label_en": "Keep labs powered on",
+            "label": "Dejar laboratorios prendidos",
+            "effects": { "energia": -20, "vida": 0, "blindaje": 0, "progreso": 15 }
+          }
+        }
+      },
+      {
+        "id": "LUN_03",
+        "role": "Investigador / Científico",
+        "nasaSource": "NASA Moon Trek (Shackleton Crater - South Pole)",
+        "title_en": "Water Ice Inside a Pitch-Black Crater!",
+        "title": "¡Hielo escondido en un cráter oscuro!",
+        "question_en": "Real NASA Moon Trek map: there is water ice inside Shackleton Crater, where sunlight never reaches! Do you drive the rover down for water ice, or stay up in the sun charging batteries?",
+        "question": "Mapa real de NASA Moon Trek: hay hielo de agua en el fondo del Cráter Shackleton, ¡pero allí nunca llega la luz del Sol! ¿Bajás con el rover a buscar hielo para tener agua o te quedás arriba cargando baterías?",
+        "hint_en": "Water ice gives a big boost to crew health and mission progress.",
+        "hint": "El hielo de agua sube mucho la salud de la tripulación y el progreso.",
+        "options": {
+          "left": {
+            "label_en": "Drive down for water ice",
+            "label": "Bajar al cráter por hielo",
+            "effects": { "energia": -15, "vida": 15, "blindaje": 0, "progreso": 5 }
+          },
+          "right": {
+            "label_en": "Stay in sunlight & charge",
+            "label": "Quedarse al sol cargando",
+            "effects": { "energia": 15, "vida": -5, "blindaje": 0, "progreso": -5 }
+          }
+        }
+      },
+      {
+        "id": "LUN_04",
+        "role": "Comandante",
+        "nasaSource": "NASA Artemis (Landing Plume & Sensors)",
+        "title_en": "Dust Cloud Blinds Landing Sensors!",
+        "title": "¡Nube de polvo tapa los sensores al aterrizar!",
+        "question_en": "Real NASA Artemis engineering: engine thrust kicked up so much lunar dust that landing lasers cannot see the ground. Do you land manually looking out the window, or trust blind radar?",
+        "question": "Dato real de NASA Artemis: el chorro de los motores levantó tanto polvo lunar que los láseres no ven el suelo para aterrizar. ¿Aterrizás mirando a ojo por la ventanilla o confiás en el radar a ciegas?",
+        "hint_en": "Manual landing protects the ship hull from boulders.",
+        "hint": "Aterrizar mirando por la ventana evita chocar contra rocas.",
+        "options": {
+          "left": {
+            "label_en": "Land manually by window",
+            "label": "Aterrizar mirando por ventana",
+            "effects": { "energia": -10, "vida": 0, "blindaje": 15, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Trust blind radar",
+            "label": "Confiar en radar a ciegas",
+            "effects": { "energia": 5, "vida": 0, "blindaje": -15, "progreso": 10 }
+          }
+        }
+      },
+      {
+        "id": "LUN_05",
+        "role": "Ingeniero Mecánico",
+        "nasaSource": "Apollo Seismometers (Moonquakes)",
+        "title_en": "Shallow Moonquake Shaking the Base!",
+        "title": "¡Terremoto en la Luna (Lunamoto)!",
+        "question_en": "Real Apollo seismometers: a shallow moonquake is violently shaking the base for 10 minutes! Do you reinforce the habitat anchors from inside, or run outside to hold the solar panels?",
+        "question": "Sismógrafos reales del programa Apollo: ¡un terremoto lunar (lunamoto) sacude fuerte la base durante 10 minutos! ¿Reforzás las patas de la base desde adentro o salís corriendo a sujetar los paneles solares?",
+        "hint_en": "Staying inside protects crew health during a moonquake.",
+        "hint": "Quedarse adentro protege la salud durante un temblor lunar.",
+        "options": {
+          "left": {
+            "label_en": "Reinforce base from inside",
+            "label": "Reforzar base desde adentro",
+            "effects": { "energia": -10, "vida": 0, "blindaje": 15, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Run out to hold panels",
+            "label": "Salir a sujetar paneles",
+            "effects": { "energia": 15, "vida": -15, "blindaje": 0, "progreso": 0 }
+          }
+        }
+      }
+    ],
+    "level_2_orbita_marte": [
+      {
+        "id": "ORB_01",
+        "role": "Especialista en Sistemas",
+        "nasaSource": "NASA Deep Space Network (Earth-Mars Light Delay)",
+        "title_en": "Radio Messages Take 20 Minutes!",
+        "title": "¡Los mensajes tardan 20 minutos en llegar!",
+        "question_en": "Real NASA Deep Space Network fact: at Mars we are so far from Earth that radio messages take 20 minutes each way (40 minutes round-trip). Do you let onboard AI run the burn, or wait for Houston?",
+        "question": "Dato real de NASA Deep Space Network: en Marte estamos tan lejos que un mensaje de radio tarda 20 minutos en ir y 20 en volver (40 en total). ¿Dejás que la IA haga la maniobra sola o esperás la orden de Houston?",
+        "hint_en": "Onboard AI is fast but risky; waiting for Earth is safe.",
+        "hint": "La IA es rápida pero tiene riesgo; esperar a la Tierra es seguro.",
+        "specialMechanic": "COMMS_50_50",
+        "options": {
+          "left": {
+            "label_en": "Let onboard AI decide",
+            "label": "Dejar decidir a la IA",
+            "effects": { "energia": 0, "vida": 0, "blindaje": 0, "progreso": 20 },
+            "failEffects": { "energia": 0, "vida": 0, "blindaje": -20, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Wait 40m for Houston",
+            "label": "Esperar 40m a Houston",
+            "effects": { "energia": 0, "vida": 0, "blindaje": 10, "progreso": -15 }
+          }
+        }
+      },
+      {
+        "id": "ORB_02",
+        "role": "Comandante",
+        "nasaSource": "NASA Mars Reconnaissance Orbiter (Aerobraking)",
+        "title_en": "Braking by Skimming Mars' Air!",
+        "title": "¡Frenar rozando el aire de Marte!",
+        "question_en": "Real NASA MRO technique: we can 'aerobrake' by skimming Mars' upper atmosphere to slow down without fuel—though friction heats up the hull! Do you aerobrake, or brake with main engines?",
+        "question": "Técnica real del orbitador MRO de la NASA: podemos hacer 'aerofrenado', rozando la atmósfera de Marte para frenar sin gastar combustible, ¡aunque el roce calienta mucho el escudo! ¿Hacés aerofrenado o frenás con los motores?",
+        "hint_en": "Aerobraking saves fuel energy at the cost of hull heat.",
+        "hint": "El aerofrenado ahorra energía de combustible, pero desgasta el blindaje térmico.",
+        "options": {
+          "left": {
+            "label_en": "Aerobrake in atmosphere",
+            "label": "Hacer aerofrenado en aire",
+            "effects": { "energia": 20, "vida": 0, "blindaje": -15, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Brake with main engines",
+            "label": "Frenar con los motores",
+            "effects": { "energia": -20, "vida": 0, "blindaje": 10, "progreso": 0 }
+          }
+        }
+      },
+      {
+        "id": "ORB_03",
+        "role": "Investigador / Científico",
+        "nasaSource": "NASA Mars Trek (Global Dust Storms)",
+        "title_en": "Planet-Wide Dust Storm Below!",
+        "title": "¡Tormenta de arena tapa todo el planeta!",
+        "question_en": "Real NASA Mars Trek data: from orbit we see a giant dust storm swallowing all of Mars. Do you stay in orbit mapping the storm scientifically, or descend through the dust clouds right now?",
+        "question": "Dato real de NASA Mars Trek: desde la órbita vemos una tormenta de polvo gigante cubriendo todo el planeta Marte. ¿Te quedás arriba sacando fotos científicas o bajás rápido atravesando las nubes de polvo?",
+        "hint_en": "Mapping from orbit gives strong science progress.",
+        "hint": "Estudiarla desde órbita suma mucho progreso científico.",
+        "options": {
+          "left": {
+            "label_en": "Map storm from orbit",
+            "label": "Estudiar tormenta en órbita",
+            "effects": { "energia": 0, "vida": -15, "blindaje": 0, "progreso": 20 }
+          },
+          "right": {
+            "label_en": "Descend through dust clouds",
+            "label": "Bajar entre nubes de polvo",
+            "effects": { "energia": 0, "vida": 0, "blindaje": -20, "progreso": 10 }
+          }
+        }
+      },
+      {
+        "id": "ORB_04",
+        "role": "Investigador / Científico",
+        "nasaSource": "NASA Solar System API (Phobos & Deimos)",
+        "title_en": "Flyby of Mars' Moon Phobos!",
+        "title": "¡Pasamos cerquita de Fobos, la luna de Marte!",
+        "question_en": "Real NASA Solar System data: we are flying near Phobos, a tiny potato-shaped moon orbiting Mars. Do you spend fuel to swing close and scan its rocks, or keep your direct orbit?",
+        "question": "Dato real de la NASA: pasamos cerquita de Fobos, una luna pequeña con forma de papa que gira alrededor de Marte. ¿Gastás combustible para desviarte y analizar sus rocas o seguís derecho en tu órbita?",
+        "hint_en": "Scanning Phobos boosts science progress using fuel.",
+        "hint": "Analizar Fobos da mucho progreso científico a cambio de energía.",
+        "options": {
+          "left": {
+            "label_en": "Detour & scan Phobos",
+            "label": "Desviarse y estudiar Fobos",
+            "effects": { "energia": -15, "vida": 0, "blindaje": 0, "progreso": 20 }
+          },
+          "right": {
+            "label_en": "Keep direct orbit",
+            "label": "Seguir derecho en órbita",
+            "effects": { "energia": 10, "vida": 0, "blindaje": 0, "progreso": -10 }
+          }
+        }
+      },
+      {
+        "id": "ORB_05",
+        "role": "Médico / Biólogo",
+        "nasaSource": "NASA OSDR (Neurovestibular Adaptation)",
+        "title_en": "Space Sickness After 6-Month Flight!",
+        "title": "¡Mareos después de 6 meses flotando!",
+        "question_en": "Real NASA OSDR science: after 6 months floating to Mars, the inner ear is dizzy and balance is off. Do you rest 2 days to adapt, or start operations while dizzy right away?",
+        "question": "Dato real de NASA OSDR: después de 6 meses flotando hacia Marte, el oído interno está mareado y cuesta mantener el equilibrio. ¿Descansan 2 días para adaptarse o empiezan a trabajar mareados ya mismo?",
+        "hint_en": "Resting restores crew health; working dizzy hurts it.",
+        "hint": "Descansar recupera la salud; trabajar mareados la baja.",
+        "options": {
+          "left": {
+            "label_en": "Rest 2 days to adapt",
+            "label": "Descansar 2 días y adaptarse",
+            "effects": { "energia": 0, "vida": 15, "blindaje": 0, "progreso": -15 }
+          },
+          "right": {
+            "label_en": "Work while dizzy now",
+            "label": "Trabajar mareados ya mismo",
+            "effects": { "energia": 0, "vida": -20, "blindaje": 0, "progreso": 15 }
+          }
+        }
+      }
+    ],
+    "level_3_caida_marte": [
+      {
+        "id": "MAR_01",
+        "role": "Comandante",
+        "nasaSource": "NASA Mars EDL (7 Minutes of Terror)",
+        "title_en": "Supersonic Parachute Failure!",
+        "title": "¡Falla el paracaídas cayendo a Marte!",
+        "question_en": "Real NASA Mars EDL ('7 Minutes of Terror'): Mars' air is so thin that our parachute cannot slow us down enough. Do you fire retro-rockets right now, or wait until 500 meters above ground?",
+        "question": "Dato real de NASA Mars EDL ('7 minutos de terror'): el aire de Marte es tan finito que el paracaídas no alcanza a frenarnos. ¿Encendés los retrocohetes ahora mismo o esperás hasta estar a 500 metros del piso?",
+        "hint_en": "Firing retro-rockets early protects the hull from a hard impact.",
+        "hint": "Encender los retrocohetes antes protege el blindaje de un golpe fuerte.",
+        "options": {
+          "left": {
+            "label_en": "Fire retro-rockets now",
+            "label": "Prender retrocohetes ahora",
+            "effects": { "energia": -25, "vida": 0, "blindaje": 15, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Wait until 500m altitude",
+            "label": "Esperar hasta los 500m",
+            "effects": { "energia": 10, "vida": 0, "blindaje": -25, "progreso": 0 }
+          }
+        }
+      },
+      {
+        "id": "MAR_02",
+        "role": "Investigador / Científico",
+        "nasaSource": "NASA Mars Trek & Perseverance (Jezero Crater)",
+        "title_en": "Crash Landing in Jezero Crater!",
+        "title": "¡Aterrizaje forzoso en el Cráter Jezero!",
+        "question_en": "Real NASA Perseverance map: we crash-landed in Jezero Crater, an ancient river delta full of sharp rocks. Do you hike to a nearby lava cave for radiation shelter, or stay fixing the ship?",
+        "question": "Mapa real de NASA Perseverance: aterrizamos de emergencia en el Cráter Jezero, un antiguo río lleno de rocas afiladas. ¿Caminás hacia una cueva cercana para protegerte de la radiación o te quedás reparando la nave?",
+        "hint_en": "The cave boosts shelter/shield, while hiking tires the crew.",
+        "hint": "La cueva mejora el refugio/blindaje, mientras que caminar cansa a la tripulación.",
+        "options": {
+          "left": {
+            "label_en": "Hike to lava tube cave",
+            "label": "Caminar hacia la cueva",
+            "effects": { "energia": 0, "vida": -15, "blindaje": 20, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Stay & repair wrecked ship",
+            "label": "Quedarse reparando la nave",
+            "effects": { "energia": 15, "vida": 0, "blindaje": -20, "progreso": 0 }
+          }
+        }
+      },
+      {
+        "id": "MAR_03",
+        "role": "Especialista en Sistemas",
+        "nasaSource": "NASA MAVEN & Mars Relay Network",
+        "title_en": "Stranded on Mars! Waiting for Rescue Orbiter",
+        "title": "¡Varados en Marte! Esperando satélite de rescate",
+        "question_en": "Real NASA MAVEN network: our main dish broke in the crash. We lit the emergency beacon, but MAVEN orbiter takes 2 turns to pass overhead. You must endure 2 turns conserving oxygen!",
+        "question": "Red real NASA MAVEN: la antena grande se rompió en el choque. Encendimos la baliza de emergencia, pero el satélite MAVEN tarda 2 turnos en pasar por arriba. ¡Tenés que aguantar 2 turnos cuidando el oxígeno!",
+        "hint_en": "Make sure you have enough Health to survive the 2-turn wait.",
+        "hint": "Asegurate de tener suficiente Vida para aguantar los 2 turnos de espera.",
+        "specialMechanic": "STRANDED_2_TURNS",
+        "strandedTurns": 2,
+        "perTurnEffect": { "energia": -5, "vida": -10, "blindaje": 0, "progreso": 0 },
+        "options": {
+          "left": {
+            "label_en": "Conserve oxygen & wait",
+            "label": "Ahorrar oxígeno y esperar",
+            "effects": { "energia": 0, "vida": -15, "blindaje": 0, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Boost beacon with battery",
+            "label": "Potenciar baliza con batería",
+            "effects": { "energia": -20, "vida": -10, "blindaje": 0, "progreso": 10 }
+          }
+        }
+      },
+      {
+        "id": "MAR_04",
+        "role": "Ingeniero Mecánico",
+        "nasaSource": "NASA Opportunity & InSight (Solar Panel Dust)",
+        "title_en": "Solar Panels Covered in Red Dust!",
+        "title": "¡Paneles solares tapados de polvo rojo!",
+        "question_en": "Real NASA Opportunity & InSight data: Martian winds coated our solar panels in red dust and power is dropping fast. Do you go outside in -60°C cold to brush them, or power down and wait?",
+        "question": "Dato real de los rovers Opportunity e InSight: el viento marciano cubrió los paneles solares con polvo rojo y casi no entra electricidad. ¿Salís afuera con -60 °C de frío a cepillarlos o apagás todo esperando el viento?",
+        "hint_en": "Brushing panels restores big energy, though the cold hurts health.",
+        "hint": "Cepillar los paneles devuelve mucha energía, aunque el frío afecta la salud.",
+        "options": {
+          "left": {
+            "label_en": "Go out in -60°C & brush",
+            "label": "Salir con -60°C y cepillar",
+            "effects": { "energia": 25, "vida": -20, "blindaje": 0, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Power down & wait for wind",
+            "label": "Apagar todo y esperar viento",
+            "effects": { "energia": -10, "vida": 0, "blindaje": 0, "progreso": -20 }
+          }
+        }
+      },
+      {
+        "id": "MAR_05",
+        "role": "Biólogo / Botánico",
+        "nasaSource": "NASA Perseverance (MOXIE Oxygen Experiment)",
+        "title_en": "Making Breathable Air From Mars!",
+        "title": "¡Fabricar oxígeno con el aire de Marte!",
+        "question_en": "Real NASA Perseverance MOXIE experiment: Mars' air is 95% unbreathable CO2, but we brought MOXIE which turns it into pure oxygen using lots of battery. Do you run MOXIE, or save battery for rescue?",
+        "question": "Experimento real MOXIE de Perseverance: el aire de Marte es 95% CO2 irrespirable, pero trajimos la máquina MOXIE que lo convierte en oxígeno puro usando mucha batería. ¿Prendés MOXIE o guardás batería para el rescate?",
+        "hint_en": "MOXIE restores crew health by making oxygen, at a high power cost.",
+        "hint": "MOXIE recupera la salud fabricando oxígeno, pero consume mucha energía.",
+        "options": {
+          "left": {
+            "label_en": "Run MOXIE to make oxygen",
+            "label": "Prender MOXIE y hacer oxígeno",
+            "effects": { "energia": -25, "vida": 25, "blindaje": 0, "progreso": 0 }
+          },
+          "right": {
+            "label_en": "Save battery for rescue",
+            "label": "Guardar batería para rescate",
+            "effects": { "energia": 15, "vida": -20, "blindaje": 0, "progreso": 15 }
+          }
+        }
+      }
+    ]
+  }
+}
