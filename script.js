@@ -477,7 +477,7 @@ const uiTranslations = {
         lvl1: "🌑 Level 1: The Moon (Easy • No Progress Loss)",
         lvl2Open: "🛰️ Level 2: Mars Orbit (Medium)",
         lvl2Lock: "🔒 Level 2: Mars Orbit (Complete Level 1 to unlock)",
-        lvl3Open: "💥 Level 3: Crash on Mars (Semi-Hard)",
+        lvl3Open: "💥 Level 3: Crash on Mars (Hard)",
         lvl3Lock: "🔒 Level 3: Crash on Mars (Complete Level 2 to unlock)",
         lblRole: "2. Choose Your Specialty:",
         role1: "🔧 Mechanical Engineer (+20% Initial Shield)",
@@ -519,7 +519,7 @@ const uiTranslations = {
         lvl1: "🌑 Nivel 1: La Luna (Fácil • Sin perder progreso)",
         lvl2Open: "🛰️ Nivel 2: Órbita de Marte (Medio)",
         lvl2Lock: "🔒 Nivel 2: Órbita de Marte (Completá Nivel 1)",
-        lvl3Open: "💥 Nivel 3: Caída en Marte (Semidifícil)",
+        lvl3Open: "💥 Nivel 3: Caída en Marte (Difícil)",
         lvl3Lock: "🔒 Nivel 3: Caída en Marte (Completá Nivel 2)",
         lblRole: "2. Elegí tu Especialidad:",
         role1: "🔧 Ing. Mecánico (+20% Blindaje inicial)",
@@ -561,7 +561,7 @@ const tutorialStepsData = {
         },
         {
             title: "4. Progressive Difficulty Levels",
-            text: "<strong>Level 1 (Moon)</strong> is relaxed and you <strong>never lose Progress</strong>! Beat it to unlock <strong>Level 2 (Mars Orbit - Medium)</strong> and <strong>Level 3 (Mars Crash - Semi-Hard)</strong>."
+            text: "<strong>Level 1 (Moon)</strong> is relaxed and you <strong>never lose Progress</strong>! Beat it to unlock <strong>Level 2 (Mars Orbit - Medium)</strong> and <strong>Level 3 (Mars Crash - Hard)</strong>."
         }
     ],
     es: [
@@ -579,7 +579,7 @@ const tutorialStepsData = {
         },
         {
             title: "4. Niveles Progresivos",
-            text: "En el <strong>Nivel 1 (Luna)</strong> jugás tranquilo y <strong>nunca perdés Progreso</strong>. Superalo para desbloquear el <strong>Nivel 2 (Órbita de Marte - Medio)</strong> y el <strong>Nivel 3 (Caída en Marte - Semidifícil)</strong>."
+            text: "En el <strong>Nivel 1 (Luna)</strong> jugás tranquilo y <strong>nunca perdés Progreso</strong>. Superalo para desbloquear el <strong>Nivel 2 (Órbita de Marte - Medio)</strong> y el <strong>Nivel 3 (Caída en Marte - Difícil)</strong>."
         }
     ]
 };
