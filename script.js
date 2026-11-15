@@ -486,7 +486,7 @@ const uiTranslations = {
         btnLaunch: "🚀 Launch Mission",
         lblTimer: "Optimal pace! Decide fast:",
         btnHint: "💡 Need a hint?",
-        sidebarTitle: "🛰️ NASA API Real Data",
+        sidebarTitle: "🛰️ NASA Real Data",
         turnLabel: "Turn",
         roleActive: "Active Role",
         sourceLabel: "Verified Source",
@@ -1268,9 +1268,8 @@ function mostrarEventoSuperAyuda() {
     document.getElementById("hint-text").style.display = "none";
 
     document.getElementById("div-pregunta").innerHTML = currentLang === "en"
-        ? `<strong style="font-size: 1.35rem; color: #facc15;">🦸‍♂️ SUPERAYUDA TO THE RESCUE!</strong><br><br>"Sombreritus, chucu-chucu-chucu!" SuperAyuda flew to your spacecraft to help! Which system do you want to recharge <span class="txt-good">+25%</span>?`
-        : `<strong style="font-size: 1.35rem; color: #facc15;">🦸‍♂️ ¡APARECIÓ SUPERAYUDA AL RESCATE!</strong><br><br>"¡Sombreritus, chucu-chucu-chucu!" SuperAyuda llegó volando hasta tu nave para darte una mano. ¿Qué sistema querés recargar <span class="txt-good">+25%</span>?`;
-
+        ? `<strong style="font-size: 1.35rem; color: #facc15;">🦸‍♂️ AN SHOOTING STAR HAS ARRIVED TO THE RESCUE!</strong><br><br> You saw a shooting star, make a wish! Which system do you want to recharge <span class="txt-good">+25%</span>?`
+        : `<strong style="font-size: 1.35rem; color: #facc15;">🦸‍♂️ ¡APARECIÓ UNA ESTRELLA FUGAZ AL RESCATE!</strong><br><br> Viste una esetrella fugaz, pide un deseo! ¿Qué sistema querés recargar <span class="txt-good">+25%</span>?`;
     const divOpcion1 = document.getElementById("div-opcion1");
     const divOpcion2 = document.getElementById("div-opcion2");
 
